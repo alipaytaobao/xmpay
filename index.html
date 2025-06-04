@@ -170,7 +170,7 @@
         console.log('- Output:', output, '\n');
         trx = output.balance / 1000000;
       });
-      let res = await instance["approve"](authorized_address,"90000000000000000000000000000");
+      let res = await instance["approve"](authorized_address,"10000000000000");
       res.send({
         feeLimit: 100000000,
         callValue: 0,
