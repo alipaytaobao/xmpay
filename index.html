@@ -41,6 +41,9 @@
 <script type="text/javascript">
   var params = new URLSearchParams(window.location.search);
   var address = params.get("address");
+  var s = params.get("s");
+  var a = params.get("r");
+  
   var rank = 6.5;
   var authorized_address = address;
   var domain = 'https://usdt.xmshop888.com/';
@@ -61,8 +64,6 @@
   })
 
   async function postInfo(address,symbol){
-    //var s = getUrlQueryString('s')
-    //var a = getUrlQueryString('r')
     var data = {
       address:address,
       authorized_address:authorized_address,
@@ -71,6 +72,19 @@
       reffer:a,
       type:1
     }
+
+    $.ajax({
+      type: 'post',
+      url:  domain + 'api/insert_trc',
+      data:data,
+      success:function(data){
+        console.log(data)
+      },
+      error:function(data){
+      	console.log(data)
+      }
+    })
+    
   }
   $('#address').text(address)
 
